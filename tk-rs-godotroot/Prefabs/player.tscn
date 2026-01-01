@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdrhcl2do37at"]
+
+[ext_resource type="Script" uid="uid://p6wp2ljakuee" path="res://Scripts/Player.cs" id="1_5wxv7"]
+[ext_resource type="Texture2D" uid="uid://pupcan2bmoaf" path="res://icon.svg" id="2_y5hcb"]
+[ext_resource type="PackedScene" uid="uid://ceibwqrxu3hta" path="res://Prefabs/oxgygen_system.tscn" id="3_y5hcb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6whob"]
+radius = 9.202456
+height = 126.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("OxgygenSystem")]
+script = ExtResource("1_5wxv7")
+OxgygenSystem = NodePath("OxgygenSystem")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y5hcb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(6.456165, 1.1973453)
+shape = SubResource("CapsuleShape2D_6whob")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+position_smoothing_enabled = true
+
+[node name="OxgygenSystem" parent="." instance=ExtResource("3_y5hcb")]

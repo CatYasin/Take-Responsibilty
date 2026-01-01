@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ceibwqrxu3hta"]
+
+[ext_resource type="Script" uid="uid://dy2w7qenixwuc" path="res://Scripts/OxgygenSystem.cs" id="1_b6w64"]
+
+[node name="OxgygenSystem" type="Node"]
+script = ExtResource("1_b6w64")
+MaxOxygen = 100.0
+OxygenUsageRate = 0.5

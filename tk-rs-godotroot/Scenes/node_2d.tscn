@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6jk0pwhs4uvc"]
+
+[ext_resource type="Texture2D" uid="uid://pupcan2bmoaf" path="res://icon.svg" id="1_v1qfn"]
+[ext_resource type="PackedScene" uid="uid://cdrhcl2do37at" path="res://Prefabs/player.tscn" id="2_v1qfn"]
+
+[node name="MainProtype" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(7, -3)
+scale = Vector2(9.469065, 5.1061954)
+texture = ExtResource("1_v1qfn")
+
+[node name="Player" parent="." instance=ExtResource("2_v1qfn")]
