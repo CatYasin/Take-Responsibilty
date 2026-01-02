@@ -8,9 +8,9 @@
 radius = 9.202456
 height = 126.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("OxgygenSystem")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("InteractRay")]
 script = ExtResource("1_5wxv7")
-OxgygenSystem = NodePath("OxgygenSystem")
+InteractRay = NodePath("RayCast2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_y5hcb")
@@ -24,3 +24,7 @@ zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 
 [node name="OxgygenSystem" parent="." instance=ExtResource("3_y5hcb")]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+scale = Vector2(1.1600002, 21.600002)
+target_position = Vector2(122.413765, 0)

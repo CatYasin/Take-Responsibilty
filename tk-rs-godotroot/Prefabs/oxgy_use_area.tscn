@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ces8e7k2qf5jv"]
+
+[ext_resource type="Script" uid="uid://dnb2mb321jv3h" path="res://Scripts/OxgyUseArea.cs" id="1_qy2tb"]
+
+[node name="OxgyUseArea" type="Area2D"]
+script = ExtResource("1_qy2tb")

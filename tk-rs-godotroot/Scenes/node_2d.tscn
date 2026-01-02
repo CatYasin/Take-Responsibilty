@@ -1,13 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://6jk0pwhs4uvc"]
+[gd_scene load_steps=6 format=3 uid="uid://6jk0pwhs4uvc"]
 
 [ext_resource type="Texture2D" uid="uid://pupcan2bmoaf" path="res://icon.svg" id="1_v1qfn"]
 [ext_resource type="PackedScene" uid="uid://cdrhcl2do37at" path="res://Prefabs/player.tscn" id="2_v1qfn"]
+[ext_resource type="PackedScene" uid="uid://ces8e7k2qf5jv" path="res://Prefabs/oxgy_use_area.tscn" id="3_hh5uf"]
+[ext_resource type="PackedScene" uid="uid://jll5s8naqicd" path="res://Prefabs/Items/oxgyen_tube.tscn" id="4_6whob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6whob"]
+size = Vector2(299, 20)
 
 [node name="MainProtype" type="Node2D"]
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(7, -3)
+position = Vector2(90, 38)
 scale = Vector2(9.469065, 5.1061954)
 texture = ExtResource("1_v1qfn")
 
 [node name="Player" parent="." instance=ExtResource("2_v1qfn")]
+position = Vector2(134, 31)
+
+[node name="OxgyUseArea" parent="." instance=ExtResource("3_hh5uf")]
+position = Vector2(-1686, 231)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OxgyUseArea"]
+position = Vector2(139.5, 0)
+scale = Vector2(-3.5349822, -107.49461)
+shape = SubResource("RectangleShape2D_6whob")
+
+[node name="OxgyenTube" parent="." instance=ExtResource("4_6whob")]
+position = Vector2(-479, -383)
+scale = Vector2(6.5283556, 8.319885)

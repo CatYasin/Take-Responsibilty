@@ -1,7 +1,8 @@
 using Godot;
+using TkRsGodotroot.Scripts;
 
 
-public partial class OxgygenSystem : Node
+public partial class OxgygenSystem : Node, IOxgyUsable
 {
 
 	[Signal]
@@ -11,7 +12,7 @@ public partial class OxgygenSystem : Node
 	public delegate void OnStopTubeEventHandler();
 	
 	[Signal]
-	public  delegate void OnReloadOxgyenEventHandler(float OxyMul = 1);
+	public  delegate void OnReloadOxgyenEventHandler(float count,float OxyMul = 1);
 	
 	[Signal]
 	public delegate void OnOxygenRunOutEventHandler();
@@ -95,7 +96,7 @@ public partial class OxgygenSystem : Node
 		IsLooping = false;
 	}
 
-	protected async void ReloadOxgyen(float OxyMul = 1)
+	protected async void ReloadOxgyen(float OxyCount,float OxyMul = 1)
 	{
 		if (IsRunning && IsLooping) return;
 
@@ -115,7 +116,7 @@ public partial class OxgygenSystem : Node
 			
 			Oxygen += OxygenReloadRate * OxygenReloadMultipler ;
 
-			if (Oxygen >= MaxOxygen)
+			if (Oxygen >= MaxOxygen && Oxygen <= OxyCount)
 			{
 				Oxygen = MaxOxygen;
 				EmitSignal(nameof(OnOxygenOverload));
@@ -125,5 +126,23 @@ public partial class OxgygenSystem : Node
 
 		IsLooping = false;
 
+	}
+	
+	
+	//IOxgyUsable
+
+	public void OxgyUse()
+	{
+		Start();
+	}
+
+	public void OxgyStop()
+	{
+		IsRunning = false;
+	}
+
+	public void OxgyReload(float count,float OxyMul = 1)
+	{
+		OxgyReload(count,OxyMul);
 	}
 }
